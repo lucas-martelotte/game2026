@@ -3,9 +3,9 @@ from math import cos, pi, sin
 import pygame
 from pygame.surface import Surface
 
-from src.core import Control
-from src.core.entities import EmbeddedSurface, Entity, MovableEntity
-from src.core.essentials import RED, WHITE, FPos
+from src.engine import Control
+from src.engine.entities import EmbeddedSurface, Entity, MovableEntity
+from src.engine.essentials import RED, WHITE, FPos
 
 
 class Oscilator(MovableEntity):
