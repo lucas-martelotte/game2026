@@ -1,3 +1,4 @@
+from math import sqrt
 from typing import cast, overload
 
 from numpy import array, ndarray
@@ -53,11 +54,23 @@ class FPos:
     def norm_squared(self) -> float:
         return self.dot(self)
 
+    def norm(self) -> float:
+        return sqrt(self.norm_squared())
+
     def dist_squared(self, other: "FPos") -> float:
-        return FPos.norm_squared(other - self)
+        return (other - self).norm_squared()
+
+    def dist(self, other: "FPos") -> float:
+        return (other - self).norm()
+
+    def normalized(self) -> "FPos":
+        return self * (1 / self.norm())
 
     def __repr__(self) -> str:
         return str(self.to_tuple())
+
+    def __hash__(self) -> int:
+        return hash(self.pos)
 
 
 class Pos(FPos):

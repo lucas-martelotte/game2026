@@ -2,7 +2,7 @@ import pygame
 from pygame.surface import Surface
 from pygame.time import Clock
 
-from .entities import Entity
+from .entities import Scene
 from .essentials import BLACK
 
 
@@ -12,7 +12,7 @@ class Control:
         display: Surface,
         screen_size: tuple[int, int],
         fps: int,
-        scenes: dict[str, Entity],
+        scenes: dict[str, Scene],
         initial_scene_id: str,
     ) -> None:
         self.display = display
